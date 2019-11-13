@@ -11,21 +11,23 @@ const Model = {
     }]
   },
   effects: {
-    *fetchList({ payload, callback }, { put, call }) {
+    *fetchData({ payload, callback }, { put, call }) {
       yield put({
-        type: 'savePageData',
+        type: 'saveData',
         payload,
       });
-      // 调用 saveTodoToServer，成功后触发 `add` action 保存到 state
       console.log('payload', payload)
       const response = yield call(getBaidu, payload);
       console.log('respones', response);
-      callback && callback(response); // eslint-disable-line
+      if (response) {
+        return Promise.resolve(response);
+      }
+      return Promise.reject(response);
     },
   },
   reducers: {
-    savePageData(state, { payload }) {
-      // 保存数据到 state
+    // 保存数据到 state
+    saveData(state, { payload }) {
       return {
         ...state,
         payload,

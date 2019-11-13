@@ -9,6 +9,10 @@ export default function() {
       <div className={styles.welcome} />
       <ul className={styles.list}>
         <Button onClick={() => router.push('/products')}>Go to products</Button>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <Button type="primary">primary</Button>
         <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
         <li>

@@ -1,9 +1,8 @@
-import { Button } from 'antd-mobile';
-import styles from './products.css';
-
-import { router } from 'umi';
 import React, { Component } from 'react';
+import { Button } from 'antd-mobile';
+import { router } from 'umi';
 import { connect } from 'dva';
+import styles from './products.css';
 
 class Products extends Component {
 
@@ -13,7 +12,7 @@ class Products extends Component {
 
   loadData() {
     this.props.dispatch({
-      type: 'test/fetchList',
+      type: 'test/fetchData',
       payload: {
         a: 1,
         b: {
@@ -25,7 +24,7 @@ class Products extends Component {
   }
 
   render() {
-    console.log('Products', this.props);
+    console.log('Products-test', this.props.test);
     return (
       <div>
         <div className={styles.normal}>
